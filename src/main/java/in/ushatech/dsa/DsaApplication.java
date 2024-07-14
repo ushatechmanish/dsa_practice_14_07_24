@@ -86,7 +86,24 @@ public class DsaApplication {
 	  return new int[]{max1,max2};
 	}
   
-	
+	static int findMissingNumberInArray(int[] arr) 
+   {
+       if(arr==null || arr.length==0)
+       {
+           return Integer.MIN_VALUE;
+       }
+        long sum=0L;
+
+        for(int num : arr)
+        {
+            sum+=num;
+        }
+        int n = arr.length+1;
+        
+        long sumFrom1ToN = (long)((n)*(n+1)/2);
+        
+        return (int)(sumFrom1ToN- sum);
+  }
     
     
     
