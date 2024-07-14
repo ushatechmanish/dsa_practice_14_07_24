@@ -1,7 +1,9 @@
 package in.ushatech.dsa;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.boot.SpringApplication;
@@ -105,7 +107,25 @@ public class DsaApplication {
         return (int)(sumFrom1ToN- sum);
   }
     
-    
-    
+public static int[] removeDuplicates(int[] arr) 
+  {
+        Set<Integer> set = new HashSet<>();
+        for(int num : arr)
+        {
+            set.add(num);
+        }
+        // Learning set.size() is the correct method
+		// int[] result = new int[set.length()];
+        int[] result = new int[set.size()];
+        int index=0;
+        for(Integer num : set)
+        {
+            result[index]=num;
+            ++index;
+        }
+        return result;
   }
+    
+    
+
 }
