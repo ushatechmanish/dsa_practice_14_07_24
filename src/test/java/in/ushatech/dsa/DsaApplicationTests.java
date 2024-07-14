@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -74,7 +75,22 @@ class DsaApplicationTests {
 		assertThrows(IndexOutOfBoundsException.class, () -> {
 			int valueNotExpected = singlyLinkedList.get(4).value;
 		});
+	}
 
+	@Test
+	@Disabled
+	public void testRotate() {
+		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+		singlyLinkedList.push(5);
+		singlyLinkedList.push(10);
+		singlyLinkedList.push(15);
+		singlyLinkedList.push(20);
+		singlyLinkedList.push(25);
+		singlyLinkedList.rotate(3);
+
+		String result = singlyLinkedList.rotate(3);
+        assertEquals("20->25->5->10->15", result);
+		
 	}
 
 }
