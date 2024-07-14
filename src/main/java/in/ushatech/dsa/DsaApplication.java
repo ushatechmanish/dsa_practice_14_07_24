@@ -1,7 +1,12 @@
 package in.ushatech.dsa;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.util.comparator.Comparators;
 
 @SpringBootApplication
 public class DsaApplication {
@@ -53,4 +58,37 @@ public class DsaApplication {
          }
         return sum;
     }
+	public static int[] findTopTwoScores(int[] array)
+	{
+	  if(array==null || array.length<=1)
+	  {
+		  return new int[]{};
+	  }
+	  
+	  int max1=Integer.MIN_VALUE;
+	  int max2=Integer.MIN_VALUE;
+	  
+	  for(int num : array)
+	  {
+		  if(num>max1)
+		  {
+			  max2=max1;
+			  max1=num;
+			  continue;
+		  }
+		  
+		  if(num>max2)
+		  {
+			  max2=num;
+		  }
+	  }
+	  
+	  return new int[]{max1,max2};
+	}
+  
+	
+    
+    
+    
+  }
 }
