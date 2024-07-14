@@ -84,34 +84,37 @@ public class SinglyLinkedList {
         return sentinel.next;
     }
 
-    // Wrong implemnentation  To be corrected
+    // TODO Wrong implemnentation To be corrected
     // public String rotate(int number) {
-    //     int effectiveRoation = size % number;
+    // int effectiveRoation = size % number;
 
-    //     Node temp = head;
-    //     tail.next = head;
-    //     for (int i = 1; i <= effectiveRoation; ++i) {
-    //         temp=temp.next;
-    //     }
-
-    //     head=temp.next;
-    //     tail=temp;
-    //     tail.next=null;
-
-    //     StringBuffer sb = new StringBuffer();
-    //     Node headNew = head;
-    //     while(headNew!=null && headNew.next!=null)
-    //     {
-    //         sb.append(headNew.value+"->");
-    //         headNew=headNew.next;
-    //     }
-    //     sb.append(headNew.value);
-
-    //     return sb.toString();
+    // Node temp = head;
+    // tail.next = head;
+    // for (int i = 1; i <= effectiveRoation; ++i) {
+    // temp=temp.next;
     // }
 
+    // head=temp.next;
+    // tail=temp;
+    // tail.next=null;
 
-    
+    // StringBuffer sb = new StringBuffer();
+    // Node headNew = head;
+    // while(headNew!=null && headNew.next!=null)
+    // {
+    // sb.append(headNew.value+"->");
+    // headNew=headNew.next;
+    // }
+    // sb.append(headNew.value);
+
+    // return sb.toString();
+    // }
+    // TODO
+    public String rotate(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'rotate'");
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -125,6 +128,38 @@ public class SinglyLinkedList {
         }
         return sb.toString();
     }
-    
+
+    public boolean set(int index, int value) {
+
+        if (index < 0 || index >= size)
+            return false;
+        Node temp = head;
+        for (int i = 0; i < index; ++i) {
+            temp = temp.next;
+        }
+        temp.value = value;
+        return true;
+    }
+
+    public Node remove(int index) 
+    {
+        if(size==0 || index<-1 || index >=size) return null;
+
+        Node sentinel = new Node();
+        sentinel.next = head;
+        for(int i=0 ; i< index ; ++i)
+        {
+            sentinel=sentinel.next;
+        }
+        //sentinel is prevNode now for node to be removed 
+
+        Node result = sentinel.next;
+
+        sentinel.next=sentinel.next.next;
+        result.next=null;
+        return result;
+    }
+
+
 
 }

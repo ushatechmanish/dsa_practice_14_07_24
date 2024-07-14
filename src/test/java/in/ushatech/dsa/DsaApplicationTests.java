@@ -89,8 +89,20 @@ class DsaApplicationTests {
 		singlyLinkedList.rotate(3);
 
 		String result = singlyLinkedList.rotate(3);
-        assertEquals("20->25->5->10->15", result);
-		
+		assertEquals("20->25->5->10->15", result);
+
+	}
+
+	@Test
+	public void testSetAtIndex() {
+		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+		singlyLinkedList.push(1);
+		singlyLinkedList.push(2);
+
+		Assertions.assertTrue(singlyLinkedList.set(0, 10)); // True
+		Assertions.assertTrue(singlyLinkedList.set(1, 20)); // True
+		Assertions.assertTrue(singlyLinkedList.head.value == 10); // 10
+		Assertions.assertTrue(singlyLinkedList.head.next.value == 20);// 20
 	}
 
 }
