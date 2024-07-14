@@ -1,5 +1,8 @@
 package in.ushatech.dsa;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,12 +35,47 @@ class DsaApplicationTests {
 		singlyLinkedList.push(5);
 		singlyLinkedList.push(10);
 
-		Assertions.assertEquals(10, singlyLinkedList.pop().value); 
+		Assertions.assertEquals(10, singlyLinkedList.pop().value);
 		Assertions.assertEquals(5, singlyLinkedList.tail.value);
-		Assertions.assertEquals(1, singlyLinkedList.size); 
+		Assertions.assertEquals(1, singlyLinkedList.size);
 		Assertions.assertEquals(5, singlyLinkedList.pop().value); // 5
 		Assertions.assertEquals(0, singlyLinkedList.size); // 0
 		Assertions.assertNull(singlyLinkedList.pop()); // The SLL does not exist
 	}
+
+	@Test
+	public void insertMethodTest() {
+		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+		Assertions.assertNotEquals(null, singlyLinkedList.push(5)); // Success
+		Assertions.assertNotEquals(null, singlyLinkedList.push(10)); // Success
+		Assertions.assertNotEquals(null, singlyLinkedList.push(15)); // Success
+		Assertions.assertNotEquals(null, singlyLinkedList.push(20)); // Success
+
+		Assertions.assertEquals(true, singlyLinkedList.insert(12, 2)); // True
+		Assertions.assertEquals(false, singlyLinkedList.insert(13, 100)); // False
+		Assertions.assertEquals(5, singlyLinkedList.size); // 5
+		Assertions.assertEquals(5, singlyLinkedList.head.value); // 5
+		Assertions.assertEquals(10, singlyLinkedList.head.next.value); // 10
+		Assertions.assertEquals(12, singlyLinkedList.head.next.next.value); // 12
+	}
+
+	@Test
+    public void testPushAndGet() 
+	{
+		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.push(5);
+        singlyLinkedList.push(10);
+        singlyLinkedList.push(15);
+        singlyLinkedList.push(20);
+        assertEquals(5, singlyLinkedList.get(0).value);
+        assertEquals(10, singlyLinkedList.get(1).value);
+        assertEquals(15, singlyLinkedList.get(2).value);
+        assertEquals(20, singlyLinkedList.get(3).value);
+
+		assertThrows(IndexOutOfBoundsException.class, ()-> {int valueNotExpected = singlyLinkedList.get(4).value;});
+
+		
+    }
+    }
 
 }

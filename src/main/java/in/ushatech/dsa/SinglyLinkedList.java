@@ -50,6 +50,45 @@ public class SinglyLinkedList {
         --size;
         return result;       
       }
+
+      public boolean insert(int data, int index) 
+      {
+        if(index<0 || index>size) return false;
+        Node node = new Node();
+        node.value=data;
+        if(size==0)
+        {
+            head=tail=node;
+            ++size;
+            return true;
+        }
+
+        Node temp = head;
+        for(int i=1 ; i<index; ++i)
+        {
+            temp=temp.next;
+        }
+        System.out.println("temp is at "+temp);
+        node.next=temp.next;
+        temp.next=node;
+        ++size;
+        return true;
+      }
+
+    public Node get(int index) {
+        if(index<0 || index>size-1)
+        {
+            throw new IndexOutOfBoundsException("Index not correct");
+        }
+        Node sentinel = new Node ();
+        sentinel.next=head;
+        for(int i=0 ; i< index ; ++i)
+        {
+            sentinel=sentinel.next;
+        }
+        return sentinel.next;
+    }
+
     
 
 }
