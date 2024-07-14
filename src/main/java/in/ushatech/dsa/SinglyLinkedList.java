@@ -131,9 +131,22 @@ public class SinglyLinkedList {
         return result;
     }
 
-    public String rotate(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rotate'");
+    public String rotate(int number) 
+    {
+        int effectiveRotation = size%number;
+        Integer.toString(effectiveRotation);
+        Node prevNode = head;
+        // Get handle of effective tail
+        for(int i=1; i<=effectiveRotation; ++i)
+        {
+            prevNode=prevNode.next;
+        }
+        tail.next=head;
+        head=prevNode.next;
+        tail=prevNode;
+        tail.next=null;
+        return this.toString();
+
     }
 
 

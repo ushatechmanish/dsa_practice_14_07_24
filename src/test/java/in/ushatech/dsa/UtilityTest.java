@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-public class DsaApplicationUtilityTest {
+public class UtilityTest {
 
     @org.junit.jupiter.api.Test
     public void testMiddle() {

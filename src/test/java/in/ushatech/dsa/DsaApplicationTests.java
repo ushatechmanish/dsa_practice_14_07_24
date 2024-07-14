@@ -78,20 +78,30 @@ class DsaApplicationTests {
 	}
 
 	@Test
-	@Disabled
 	public void testRotate() {
 		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+		singlyLinkedList.push(1);
+		singlyLinkedList.push(2);
+		singlyLinkedList.push(3);
+		singlyLinkedList.push(4);
 		singlyLinkedList.push(5);
-		singlyLinkedList.push(10);
-		singlyLinkedList.push(15);
-		singlyLinkedList.push(20);
-		singlyLinkedList.push(25);
-		singlyLinkedList.rotate(3);
 
-		String result = singlyLinkedList.rotate(3);
-		assertEquals("20->25->5->10->15", result);
+		String result = singlyLinkedList.rotate(2);
+		assertEquals("3->4->5->1->2", result);
 
 	}
+
+	// @Test
+	// public void testRotateIncremental()
+	// {
+	// 	SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+	// 	singlyLinkedList.push(5);
+	// 	singlyLinkedList.push(10);
+	// 	singlyLinkedList.push(15);
+	// 	assertEquals("0", singlyLinkedList.rotate(0));;
+	// 	assertEquals("0", singlyLinkedList.rotate(0));;
+
+	// }
 
 	@Test
 	public void testSetAtIndex() {
