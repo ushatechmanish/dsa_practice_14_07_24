@@ -121,4 +121,33 @@ public class DsaApplication {
         return uniqueCount;
     }
 
+	public int maxProfit(int[] prices) //[7, 1, 5, 3, 6, 4] 
+    {
+        int currentProfit = 0; // 2
+        int maxProfit=0; // 4
+        int currentMin = prices[0]; // 1
+        
+        for(int i=1; i< prices.length ; ++i) // i=3
+        {
+            int price = prices[i]; // 3
+            if(price>currentMin) // profit exists // 3>1 true
+            {
+                currentProfit=price-currentMin; // 3-1=2 
+                if(currentProfit>maxProfit) // false
+                {
+                    maxProfit=currentProfit;
+                    continue;
+                }
+            }
+            
+            if(price<currentMin) // 1<7 false
+            {
+                currentMin=price; 
+            }
+            
+        }
+        
+        return maxProfit;
+            
+    }
 }
