@@ -26,4 +26,18 @@ class DsaApplicationTests {
 		Assertions.assertEquals(5, singlyLinkedList.head.value);
 	}
 
+	@Test
+	public void popMethodTest() {
+		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+		singlyLinkedList.push(5);
+		singlyLinkedList.push(10);
+
+		Assertions.assertEquals(10, singlyLinkedList.pop().value); 
+		Assertions.assertEquals(5, singlyLinkedList.tail.value);
+		Assertions.assertEquals(1, singlyLinkedList.size); 
+		Assertions.assertEquals(5, singlyLinkedList.pop().value); // 5
+		Assertions.assertEquals(0, singlyLinkedList.size); // 0
+		Assertions.assertNull(singlyLinkedList.pop()); // The SLL does not exist
+	}
+
 }
