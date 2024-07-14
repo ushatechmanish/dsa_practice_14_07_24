@@ -15,117 +15,110 @@ public class DsaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DsaApplication.class, args);
+		System.out.println("removeDuplicates"+removeDuplicates(new int[]{1,1,2}));
 	}
 
-	public static int[] middle(int[] input)
-    {
-		if(input==null || input.length<=2)
-		{
-			return new int[]{};
+	public static int[] middle(int[] input) {
+		if (input == null || input.length <= 2) {
+			return new int[] {};
 		}
-        int[] result = new int[input.length-2];
-        for(int i=0 ; i< input.length; ++i)
+		int[] result = new int[input.length - 2];
+		for (int i = 0; i < input.length; ++i) {
+			if (i == 0 || i == input.length - 1) {
+				continue;
+			}
+			result[i - 1] = input[i];
+		}
+		return result;
+	}
+
+	public static int sumDiagonalElements(int[][] array) {
+		// edge case
+		if (array == null) {
+			return Integer.MIN_VALUE;
+		}
+
+		int len = array.length;
+		if (len == 0) {
+			return Integer.MIN_VALUE;
+		}
+		int sum = 0;
+		for (int i = 0; i < len; ++i) {
+			for (int j = 0; j < array[i].length; ++j) {
+				if (i == j || (i + j - 1) == len) {
+					sum += array[i][j];
+				}
+			}
+		}
+		return sum;
+	}
+
+	public static int[] findTopTwoScores(int[] array) {
+		if (array == null || array.length <= 1) {
+			return new int[] {};
+		}
+
+		int max1 = Integer.MIN_VALUE;
+		int max2 = Integer.MIN_VALUE;
+
+		for (int num : array) {
+			if (num > max1) {
+				max2 = max1;
+				max1 = num;
+				continue;
+			}
+
+			if (num > max2) {
+				max2 = num;
+			}
+		}
+
+		return new int[] { max1, max2 };
+	}
+
+	static int findMissingNumberInArray(int[] arr) {
+		if (arr == null || arr.length == 0) {
+			return Integer.MIN_VALUE;
+		}
+		long sum = 0L;
+
+		for (int num : arr) {
+			sum += num;
+		}
+		int n = arr.length + 1;
+
+		long sumFrom1ToN = (long) ((n) * (n + 1) / 2);
+
+		return (int) (sumFrom1ToN - sum);
+	}
+
+	public static int removeDuplicates(int[] nums) 
+    {
+        // System.out.println(Arrays.toString(nums));
+        if(nums==null || nums.length==0)
         {
-            if(i==0 || i== input.length-1)
+            return 0;
+        }
+        if(nums.length==1)
+        {
+            return 1;
+        }
+        
+        // int uniqueCount=0; This is wrong as the iteration is starting from 2nd number
+		//  Dry run was not done for the algorithm 
+        int uniqueCount=1;
+        int prevNumber=nums[0];
+        for(int i=1; i< nums.length; ++i)
+        {
+            if(nums[i]==prevNumber)
             {
                 continue;
             }
-            result[i-1]=input[i];
+            prevNumber=nums[i];
+            ++uniqueCount;
         }
-        return result;
-    }
-	public static int sumDiagonalElements(int[][] array) 
-      {
-         //edge case
-         if(array==null)
-         {
-             return Integer.MIN_VALUE;
-         }
-         
-         int len = array.length;
-         if(len==0)
-         {
-			return Integer.MIN_VALUE;
-         }
-         int sum =0 ; 
-         for(int i=0 ; i< len ; ++i)
-         {
-             for(int j=0 ; j< array[i].length ; ++j)
-             {
-                 if(i==j || (i+j-1)==len)
-                 {
-                     sum+=array[i][j];
-                 }
-             }
-         }
-        return sum;
-    }
-	public static int[] findTopTwoScores(int[] array)
-	{
-	  if(array==null || array.length<=1)
-	  {
-		  return new int[]{};
-	  }
-	  
-	  int max1=Integer.MIN_VALUE;
-	  int max2=Integer.MIN_VALUE;
-	  
-	  for(int num : array)
-	  {
-		  if(num>max1)
-		  {
-			  max2=max1;
-			  max1=num;
-			  continue;
-		  }
-		  
-		  if(num>max2)
-		  {
-			  max2=num;
-		  }
-	  }
-	  
-	  return new int[]{max1,max2};
-	}
-  
-	static int findMissingNumberInArray(int[] arr) 
-   {
-       if(arr==null || arr.length==0)
-       {
-           return Integer.MIN_VALUE;
-       }
-        long sum=0L;
-
-        for(int num : arr)
-        {
-            sum+=num;
-        }
-        int n = arr.length+1;
         
-        long sumFrom1ToN = (long)((n)*(n+1)/2);
-        
-        return (int)(sumFrom1ToN- sum);
-  }
-    
-public static int[] removeDuplicates(int[] arr) 
-  {
-        Set<Integer> set = new HashSet<>();
-        for(int num : arr)
-        {
-            set.add(num);
-        }
-        // Learning set.size() is the correct method
-		// int[] result = new int[set.length()];
-        int[] result = new int[set.size()];
-        int index=0;
-        for(Integer num : set)
-        {
-            result[index]=num;
-            ++index;
-        }
-        return result;
-  }
-    
-    
+        return uniqueCount;
+    }
 
 }
