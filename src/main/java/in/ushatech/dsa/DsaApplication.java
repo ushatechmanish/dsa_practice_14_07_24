@@ -220,4 +220,31 @@ public class DsaApplication {
         }
         return !itr.hasNext();
     }
+	public static void rotateMatrix(int[][] matrix) {
+        
+        // To roate a matrix , first transpose the matrix and then reverse the rows . 
+        
+        // Transpose the matrix
+        for(int row=0 ; row< matrix.length; ++row)
+        {
+            for(int col=row ; col< matrix.length; ++col) // important col should start from row to avoid transposing the elements again for row!=col
+            {
+                int temp = matrix[row][col];
+                matrix[row][col]= matrix[col][row];
+                matrix[col][row]= temp;
+            }
+        }
+        
+        // reverse the row
+        for(int row=0 ; row< matrix.length; ++row)
+        {
+            for(int col=0 ; col< matrix.length/2 ; ++col)
+            {
+                int temp = matrix[row][col];
+                matrix[row][col]= matrix[row][matrix.length-col-1];
+                matrix[row][matrix.length-col-1]= temp;
+            }
+        }
+        
+    }
 }
