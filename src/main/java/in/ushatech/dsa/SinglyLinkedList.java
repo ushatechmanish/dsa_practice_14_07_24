@@ -85,7 +85,9 @@ public class SinglyLinkedList {
     }
 
     // TODO Wrong implemnentation To be corrected
+    // TODO Wrong implemnentation To be corrected
     // public String rotate(int number) {
+    // int effectiveRoation = size % number;
     // int effectiveRoation = size % number;
 
     // Node temp = head;
@@ -93,7 +95,15 @@ public class SinglyLinkedList {
     // for (int i = 1; i <= effectiveRoation; ++i) {
     // temp=temp.next;
     // }
+    // Node temp = head;
+    // tail.next = head;
+    // for (int i = 1; i <= effectiveRoation; ++i) {
+    // temp=temp.next;
+    // }
 
+    // head=temp.next;
+    // tail=temp;
+    // tail.next=null;
     // head=temp.next;
     // tail=temp;
     // tail.next=null;
@@ -106,9 +116,24 @@ public class SinglyLinkedList {
     // headNew=headNew.next;
     // }
     // sb.append(headNew.value);
+    // StringBuffer sb = new StringBuffer();
+    // Node headNew = head;
+    // while(headNew!=null && headNew.next!=null)
+    // {
+    // sb.append(headNew.value+"->");
+    // headNew=headNew.next;
+    // }
+    // sb.append(headNew.value);
 
     // return sb.toString();
+    // return sb.toString();
     // }
+    // TODO
+    public String rotate(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'rotate'");
+    }
+
     // TODO
     public String rotate(int i) {
         // TODO Auto-generated method stub
