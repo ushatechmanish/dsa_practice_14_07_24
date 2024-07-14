@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -36,25 +37,27 @@ public class DsaApplication {
 	}
 
 	public static int sumDiagonalElements(int[][] array) {
-		// edge case
+		// Edge case
 		if (array == null) {
 			return Integer.MIN_VALUE;
 		}
-
+	
 		int len = array.length;
 		if (len == 0) {
 			return Integer.MIN_VALUE;
 		}
+	
 		int sum = 0;
 		for (int i = 0; i < len; ++i) {
 			for (int j = 0; j < array[i].length; ++j) {
-				if (i == j || (i + j - 1) == len) {
+				if (i == j || (i + j) == (len - 1)) {
 					sum += array[i][j];
 				}
 			}
 		}
 		return sum;
 	}
+	
 
 	public static int[] findTopTwoScores(int[] array) {
 		if (array == null || array.length <= 1) {
@@ -119,7 +122,7 @@ public class DsaApplication {
 		return uniqueCount;
 	}
 
-	public int maxProfit(int[] prices) // [7, 1, 5, 3, 6, 4]
+	public static int maxProfit(int[] prices) // [7, 1, 5, 3, 6, 4]
 	{
 		int currentProfit = 0; // 2
 		int maxProfit = 0; // 4
@@ -149,7 +152,7 @@ public class DsaApplication {
 
 	}
 
-	public int[] twoSum(int[] nums, int target) {
+	public  static int[] twoSum(int[] nums, int target) {
 		if (nums == null || nums.length < 2)
 			return new int[] { -1, -1 };
 
@@ -164,7 +167,7 @@ public class DsaApplication {
 		return new int[] { -1, -1 };
 	}
 
-	public int searchInArray(int[] intArray, int valueToSearch) {
+	public  static int searchInArray(int[] intArray, int valueToSearch) {
 		for (int i = 0; i < intArray.length; ++i) {
 			if (intArray[i] == valueToSearch)
 				return i;
@@ -190,35 +193,33 @@ public class DsaApplication {
 		// return String.format("({},{})",max2,max1); // wrong syntax
 		// It doesn't return correct expected:<[60,50]> but was:<[({},{})]>
 		// correct options are given below
-		// String result = String.format("%d,%d", max1,max2);
-		String result = """
-				%d,%d
-				""".formatted(max1, max2);
+		String result = String.format("%d,%d", max1,max2);
+		// String result = """
+		// 		%d,%d
+		// 		""".formatted(max1, max2);
 		return result;
 
 	}
 
-	public boolean isUnique(int[] intArray) {
+	public static boolean isUnique(int[] intArray) {
 		return Arrays.stream(intArray).distinct().count() == intArray.length;
 	}
 
-	public boolean permutation(int[] array1, int[] array2)
+	public static boolean permutation(int[] array1, int[] array2)
     {
-		// The method collect(Supplier<R>, ObjIntConsumer<R>, BiConsumer<R,R>) in the type IntStream is not applicable for the arguments (Collector<Object,?,List<Object>>)
-        // since Arrays.stream will give IntStream here which does not have collect method, it will not work . So use boxed() for converting to Stream<Integer>
-		// List<Integer> listArray1 = Arrays.stream(array1).collect(Collectors.toList());
-        List<Integer> listArray1 = Arrays.stream(array1).boxed().collect(Collectors.toList());
-        Iterator<Integer> itr = listArray1.iterator();
-        while(itr.hasNext())
-        {
-            Integer next = itr.next();
-            if(listArray1.contains(next))
-            {
-				// itr.remove(next); wrong method
-				itr.remove();
+		Map<Integer, Long> map = Arrays.stream(array1).boxed().collect(Collectors.groupingBy(i->{return i;}, Collectors.counting()));
+		for(int num : array2)
+		{
+			if(map.containsKey(num))
+			{
+				map.put(num,map.get(num)-1);
+				if(map.get(num)==0)
+				{
+					map.remove(num);
+				}
 			}
-        }
-        return !itr.hasNext();
+		}
+		return map.isEmpty();
     }
 	public static void rotateMatrix(int[][] matrix) {
         

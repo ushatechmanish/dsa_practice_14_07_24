@@ -84,57 +84,6 @@ public class SinglyLinkedList {
         return sentinel.next;
     }
 
-    // TODO Wrong implemnentation To be corrected
-    // TODO Wrong implemnentation To be corrected
-    // public String rotate(int number) {
-    // int effectiveRoation = size % number;
-    // int effectiveRoation = size % number;
-
-    // Node temp = head;
-    // tail.next = head;
-    // for (int i = 1; i <= effectiveRoation; ++i) {
-    // temp=temp.next;
-    // }
-    // Node temp = head;
-    // tail.next = head;
-    // for (int i = 1; i <= effectiveRoation; ++i) {
-    // temp=temp.next;
-    // }
-
-    // head=temp.next;
-    // tail=temp;
-    // tail.next=null;
-    // head=temp.next;
-    // tail=temp;
-    // tail.next=null;
-
-    // StringBuffer sb = new StringBuffer();
-    // Node headNew = head;
-    // while(headNew!=null && headNew.next!=null)
-    // {
-    // sb.append(headNew.value+"->");
-    // headNew=headNew.next;
-    // }
-    // sb.append(headNew.value);
-    // StringBuffer sb = new StringBuffer();
-    // Node headNew = head;
-    // while(headNew!=null && headNew.next!=null)
-    // {
-    // sb.append(headNew.value+"->");
-    // headNew=headNew.next;
-    // }
-    // sb.append(headNew.value);
-
-    // return sb.toString();
-    // return sb.toString();
-    // }
-    // TODO
-
-    // TODO
-    public String rotate(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rotate'");
-    }
 
     @Override
     public String toString() {
@@ -180,6 +129,11 @@ public class SinglyLinkedList {
         result.next=null;
         --size;
         return result;
+    }
+
+    public String rotate(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'rotate'");
     }
 
 
