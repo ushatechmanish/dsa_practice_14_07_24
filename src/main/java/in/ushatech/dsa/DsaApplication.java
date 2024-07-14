@@ -16,7 +16,7 @@ public class DsaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DsaApplication.class, args);
 		System.out.println("removeDuplicates" + removeDuplicates(new int[] { 1, 1, 2 }));
-		System.out.println(maxProduct(new int[]{10,20,30,40,50}));
+		System.out.println(maxProduct(new int[] { 10, 20, 30, 40, 50 }));
 	}
 
 	public static int[] middle(int[] input) {
@@ -163,41 +163,40 @@ public class DsaApplication {
 	}
 
 	public int searchInArray(int[] intArray, int valueToSearch) {
-		for(int i=0 ; i< intArray.length ; ++i)
-		{
-			if(intArray[i]==valueToSearch) return i;
+		for (int i = 0; i < intArray.length; ++i) {
+			if (intArray[i] == valueToSearch)
+				return i;
 		}
 		return -1;
 	}
 
-	public static String maxProduct(int[] intArray) 
-    {
-        int max1= Integer.MIN_VALUE;
-        int max2= Integer.MIN_VALUE;
-        
-        for(int num : intArray)
-        {
-            if(num>max1)
-            {
-                max2=max1;
-                max1=num;
-                continue;
-            }
-            if(num>max2)
-            {
-                max2=num;
-            }
-        }
-        
-        // return String.format("({},{})",max2,max1); // wrong syntax 
+	public static String maxProduct(int[] intArray) {
+		int max1 = Integer.MIN_VALUE;
+		int max2 = Integer.MIN_VALUE;
+
+		for (int num : intArray) {
+			if (num > max1) {
+				max2 = max1;
+				max1 = num;
+				continue;
+			}
+			if (num > max2) {
+				max2 = num;
+			}
+		}
+
+		// return String.format("({},{})",max2,max1); // wrong syntax
 		// It doesn't return correct expected:<[60,50]> but was:<[({},{})]>
 		// correct options are given below
 		// String result = String.format("%d,%d", max1,max2);
 		String result = """
 				%d,%d
-				""".formatted(max1,max2);
+				""".formatted(max1, max2);
 		return result;
 
+	}
 
-    }
+	public boolean isUnique(int[] intArray) {
+		return Arrays.stream(intArray).distinct().count() == intArray.length;
+	}
 }
