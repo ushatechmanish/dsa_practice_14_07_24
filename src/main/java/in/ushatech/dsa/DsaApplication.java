@@ -2,8 +2,10 @@ package in.ushatech.dsa;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.boot.SpringApplication;
@@ -199,4 +201,23 @@ public class DsaApplication {
 	public boolean isUnique(int[] intArray) {
 		return Arrays.stream(intArray).distinct().count() == intArray.length;
 	}
+
+	public boolean permutation(int[] array1, int[] array2)
+    {
+		// The method collect(Supplier<R>, ObjIntConsumer<R>, BiConsumer<R,R>) in the type IntStream is not applicable for the arguments (Collector<Object,?,List<Object>>)
+        // since Arrays.stream will give IntStream here which does not have collect method, it will not work . So use boxed() for converting to Stream<Integer>
+		// List<Integer> listArray1 = Arrays.stream(array1).collect(Collectors.toList());
+        List<Integer> listArray1 = Arrays.stream(array1).boxed().collect(Collectors.toList());
+        Iterator<Integer> itr = listArray1.iterator();
+        while(itr.hasNext())
+        {
+            Integer next = itr.next();
+            if(listArray1.contains(next))
+            {
+				// itr.remove(next); wrong method
+				itr.remove();
+			}
+        }
+        return !itr.hasNext();
+    }
 }
