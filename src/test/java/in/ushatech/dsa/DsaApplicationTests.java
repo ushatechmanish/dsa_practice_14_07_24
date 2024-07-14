@@ -60,22 +60,21 @@ class DsaApplicationTests {
 	}
 
 	@Test
-    public void testPushAndGet() 
-	{
+	public void testPushAndGet() {
 		SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        singlyLinkedList.push(5);
-        singlyLinkedList.push(10);
-        singlyLinkedList.push(15);
-        singlyLinkedList.push(20);
-        assertEquals(5, singlyLinkedList.get(0).value);
-        assertEquals(10, singlyLinkedList.get(1).value);
-        assertEquals(15, singlyLinkedList.get(2).value);
-        assertEquals(20, singlyLinkedList.get(3).value);
+		singlyLinkedList.push(5);
+		singlyLinkedList.push(10);
+		singlyLinkedList.push(15);
+		singlyLinkedList.push(20);
+		assertEquals(5, singlyLinkedList.get(0).value);
+		assertEquals(10, singlyLinkedList.get(1).value);
+		assertEquals(15, singlyLinkedList.get(2).value);
+		assertEquals(20, singlyLinkedList.get(3).value);
 
-		assertThrows(IndexOutOfBoundsException.class, ()-> {int valueNotExpected = singlyLinkedList.get(4).value;});
+		assertThrows(IndexOutOfBoundsException.class, () -> {
+			int valueNotExpected = singlyLinkedList.get(4).value;
+		});
 
-		
-    }
-    }
+	}
 
 }
