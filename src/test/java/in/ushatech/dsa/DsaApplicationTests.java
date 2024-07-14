@@ -104,5 +104,24 @@ class DsaApplicationTests {
 		Assertions.assertTrue(singlyLinkedList.head.value == 10); // 10
 		Assertions.assertTrue(singlyLinkedList.head.next.value == 20);// 20
 	}
+	@Test
+	public void testRemove() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.push(5);  // Success
+        singlyLinkedList.push(10);  // Success
+        singlyLinkedList.push(15);  // Success
+        singlyLinkedList.push(20);  // Success
+        singlyLinkedList.push(25);  // Success
+
+        assertEquals(15, singlyLinkedList.remove(2).value); // remove element at index 2, expected value 15
+        assertEquals(null, singlyLinkedList.remove(100)); // remove element at index 100, expected null
+
+        assertEquals(4, singlyLinkedList.size); // check size, expected 4
+
+        assertEquals(5, singlyLinkedList.head.value); // check head value, expected 5
+        assertEquals(10, singlyLinkedList.head.next.value); // check second value, expected 10
+        assertEquals(20, singlyLinkedList.head.next.next.value); // check third value, expected 20
+        assertEquals(25, singlyLinkedList.head.next.next.next.value); // check fourth value, expected 25
+    }
 
 }

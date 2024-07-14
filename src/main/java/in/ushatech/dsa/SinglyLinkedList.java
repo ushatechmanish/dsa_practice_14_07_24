@@ -129,10 +129,6 @@ public class SinglyLinkedList {
     // return sb.toString();
     // }
     // TODO
-    public String rotate(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rotate'");
-    }
 
     // TODO
     public String rotate(int i) {
@@ -182,6 +178,7 @@ public class SinglyLinkedList {
 
         sentinel.next=sentinel.next.next;
         result.next=null;
+        --size;
         return result;
     }
 
