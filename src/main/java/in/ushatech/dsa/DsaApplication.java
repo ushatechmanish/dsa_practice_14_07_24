@@ -8,7 +8,6 @@ public class DsaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DsaApplication.class, args);
-		
 	}
 
 	public static int[] middle(int[] input)
