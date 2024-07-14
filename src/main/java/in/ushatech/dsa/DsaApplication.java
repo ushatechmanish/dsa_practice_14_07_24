@@ -12,6 +12,10 @@ public class DsaApplication {
 
 	public static int[] middle(int[] input)
     {
+		if(input==null || input.length<=2)
+		{
+			return new int[]{};
+		}
         int[] result = new int[input.length-2];
         for(int i=0 ; i< input.length; ++i)
         {
@@ -22,5 +26,31 @@ public class DsaApplication {
             result[i-1]=input[i];
         }
         return result;
+    }
+	public static int sumDiagonalElements(int[][] array) 
+      {
+         //edge case
+         if(array==null)
+         {
+             return Integer.MIN_VALUE;
+         }
+         
+         int len = array.length;
+         if(len==0)
+         {
+			return Integer.MIN_VALUE;
+         }
+         int sum =0 ; 
+         for(int i=0 ; i< len ; ++i)
+         {
+             for(int j=0 ; j< array[i].length ; ++j)
+             {
+                 if(i==j || (i+j-1)==len)
+                 {
+                     sum+=array[i][j];
+                 }
+             }
+         }
+        return sum;
     }
 }
