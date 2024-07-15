@@ -47,12 +47,13 @@ public class LinkedListUtilMethods {
 
     // TODO correct as per the following expectation
     // expected:<[2 -> 1] -> 9 -> 5 -> 10> but was:<[1 -> 2] -> 9 -> 5 -> 10>
-    // Basically the items is shifted to 2 ends . 
+    // Basically the items is shifted to 2 ends .
     // What i have implemented is too complex.
-    // Since head and tail is already available , it should be used to simplify the solution 
+    // Since head and tail is already available , it should be used to simplify the
+    // solution
     // The test is also to be implemented after completing this .
 
-    // Review the solution video before attempting it 
+    // Review the solution video before attempting it
     // https://www.udemy.com/course/java-data-structures-and-algorithms-masterclass/learn/lecture/24338298#overview
     LinkedList partition(LinkedList list, int x) // 1 -> 9 -> 5 -> 10 -> 2 [x=4]
     {
@@ -102,45 +103,82 @@ public class LinkedListUtilMethods {
         newNode.next = next;
     }
 
-    public LinkedList sumLists(LinkedList l1 , LinkedList l2)
-    {
+    public LinkedList sumLists(LinkedList l1, LinkedList l2) {
         LinkedList result = new LinkedList();
-        // We will modify the l1 in place 
+        // We will modify the l1 in place
         Node head1 = l1.head;
-        Node head2= l2.head;
+        Node head2 = l2.head;
         int carry = 0;
 
-        while(head1!= null || head2!=null)
-        {
-            int value1=0;
-            int value2=0;
-            if(head1!=null)
-            {
-                value1=head1.value;
-                head1=head1.next;
+        while (head1 != null || head2 != null) {
+            int value1 = 0;
+            int value2 = 0;
+            if (head1 != null) {
+                value1 = head1.value;
+                head1 = head1.next;
             }
-            
-            if(head2!=null)
-            {
-                value2=head2.value;
-                head2=head2.next;
+
+            if (head2 != null) {
+                value2 = head2.value;
+                head2 = head2.next;
             }
-            
-            int sum = value1+value2+carry;
-            
+
+            int sum = value1 + value2 + carry;
+
             int newDigit = sum % 10;
-            
-            carry=sum/10;
+
+            carry = sum / 10;
 
             result.insertNode(newDigit);
-            
-            
+
         }
-        if(carry!=0)
-        {
+        if (carry != 0) {
             result.insertNode(carry);
         }
         return result;
     }
 
+    public Node findIntersection(LinkedList l1, LinkedList l2) {
+        l1.traversalLL();
+        l2.traversalLL();
+        Node head1 = l1.head;
+        Node head2 = l2.head;
+        int size1 = l1.size;
+        int size2 = l2.size;
+        int diff = (size1 - size2) > 0 ? (size1 - size2) : (size2 - size1);
+        // System.out.println("diff"+diff);
+        if (size1 > size2) {
+            // System.out.println("moving head1 by "+diff);
+            for (int i = 0; i < diff; ++i)
+                head1 = head1.next;
+        }
+        if (size2 > size1) {
+            // System.out.println("moving head2 by "+diff);
+            for (int i = 0; i < diff; ++i)
+                head2 = head2.next;
+        }
+
+        // System.out.println(String.format("head1 %d , head2
+        // %d",head1.value,head2.value));
+        while (head1 != null && head2 != null) {
+            if (head1 == head2)
+                return head1;
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        return head1;
+
+    }
+
+    void addSameNode(LinkedList llA, LinkedList llB, int nodeValue) {
+        Node newNode = new Node();
+        newNode.value = nodeValue;
+        llA.tail.next = newNode;
+        llA.tail = newNode;
+        llB.tail.next = newNode;
+        llB.tail = newNode;
+    
+      }
+      
 }
