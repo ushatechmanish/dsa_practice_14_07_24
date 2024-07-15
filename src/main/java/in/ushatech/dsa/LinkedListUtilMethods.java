@@ -51,6 +51,9 @@ public class LinkedListUtilMethods {
     // What i have implemented is too complex.
     // Since head and tail is already available , it should be used to simplify the solution 
     // The test is also to be implemented after completing this .
+
+    // Review the solution video before attempting it 
+    // https://www.udemy.com/course/java-data-structures-and-algorithms-masterclass/learn/lecture/24338298#overview
     LinkedList partition(LinkedList list, int x) // 1 -> 9 -> 5 -> 10 -> 2 [x=4]
     {
         if (list == null || list.size <= 1) // skipped
