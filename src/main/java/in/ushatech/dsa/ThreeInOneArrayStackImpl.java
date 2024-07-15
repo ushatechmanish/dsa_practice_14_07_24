@@ -15,11 +15,13 @@ public class ThreeInOneArrayStackImpl {
     // isFull
     public boolean isFull(int stackNum) {
       // TODO
+      return false;
     }
   
     // isEmpty
     public boolean isEmpty(int stackNum) {
         // TODO
+        return false;
     }
   
     // indexOfTop - this is helper method for push, pop and peek methods
@@ -27,18 +29,21 @@ public class ThreeInOneArrayStackImpl {
     private int indexOfTop(int stackNum) 
     {
       // TODO
+      return Integer.MIN_VALUE;
     }
   
     // push
     public void push(int stackNum, int value) 
     {
       // TODO
+      return ;
     }
   
     // pop
     public int pop(int stackNum) 
     {
       // TODO
+      return Integer.MIN_VALUE;
     }
   
     // peek
@@ -46,6 +51,7 @@ public class ThreeInOneArrayStackImpl {
     public int peek(int stackNum) 
     {
       // TODO
+      return Integer.MIN_VALUE;
     }
   
   }
