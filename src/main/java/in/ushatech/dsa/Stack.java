@@ -1,44 +1,34 @@
 package in.ushatech.dsa;
 
-class Stack 
+public class Stack 
 {
-    private Node peak;
-    private int length;
+     Node top;
+     int height;
 
     public Stack() {
-        this.peak = null;
-        this.length = 0;
+        top = null;
+        height = 0;
+    }
+    
+     public void push(Node node) {
+        node.next = top;
+        top = node;
+        height++;
     }
 
-    public void push(int value) 
+    public Node pop() 
     {
-        Node newNode = new Node(value);
-        ++length;
-        if(peak==null)
+        if(top==null)
         {
-            peak = newNode;
-            return;
+            return null;
         }
+        --height;
+        Node poppedNode = top;
+        top=top.next;
+        return poppedNode;
         
-        peak.next=newNode;
-        peak=peak.next;
-    }
-    
-    // For demonstration purposes
-    public int getPeakValue() {
-        if (peak != null) {
-            return peak.value;
-        }
-        return -1; // Return a dummy value if the stack is empty
     }
 
-    public static void main(String[] args) {
-        Stack stack = new Stack();
-        stack.push(5);
-        stack.push(10);
-        System.out.println(stack.getPeakValue());  // Outputs: 10
-    }
-
-    
+   
 }
 //TODO : Test to be written
