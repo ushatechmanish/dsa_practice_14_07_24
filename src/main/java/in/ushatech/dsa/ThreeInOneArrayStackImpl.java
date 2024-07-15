@@ -1,5 +1,6 @@
 package in.ushatech.dsa;
 
+// https://www.udemy.com/course/java-data-structures-and-algorithms-masterclass/learn/quiz/5132864#overview
 public class ThreeInOneArrayStackImpl {
     private int numberOfStacks = 3;
     private int stackCapacity;
