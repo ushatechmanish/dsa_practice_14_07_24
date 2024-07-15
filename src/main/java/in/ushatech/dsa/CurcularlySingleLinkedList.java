@@ -1,12 +1,12 @@
 package in.ushatech.dsa;
 
 // sentinel node is not required here as we already have prev Node as tail
-public class CSLinkedList {
+public class CurcularlySingleLinkedList {
     Node head;
     Node tail;
     int size;
 
-    public CSLinkedList() {
+    public CurcularlySingleLinkedList() {
         head = null;
         tail = null;
         size = 0;

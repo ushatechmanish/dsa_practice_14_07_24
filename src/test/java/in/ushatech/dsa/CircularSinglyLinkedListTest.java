@@ -1,15 +1,17 @@
 package in.ushatech.dsa;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Disabled;
-
-class CSLinkedListTest {
+public class CircularSinglyLinkedListTest {
 
     @Test
     void testAppend() {
-        CSLinkedList list = new CSLinkedList();
+        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
         list.append(10);
         assertEquals("10", list.toString());
 
@@ -22,7 +24,7 @@ class CSLinkedListTest {
 
     @Test
     void testPrepend() {
-        CSLinkedList list = new CSLinkedList();
+        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
         list.prepend(10);
         assertEquals("10", list.toString());
 
@@ -35,7 +37,7 @@ class CSLinkedListTest {
 
     @Test
     void testAppendAndPrepend() {
-        CSLinkedList list = new CSLinkedList();
+        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
         list.append(10);
         list.prepend(5);
         list.append(15);
@@ -45,13 +47,13 @@ class CSLinkedListTest {
 
     @Test
     void testEmptyList() {
-        CSLinkedList list = new CSLinkedList();
+        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
         assertEquals("", list.toString());
     }
 
     @Test
     void testSingleElementList() {
-        CSLinkedList list = new CSLinkedList();
+        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
         list.append(1);
         assertEquals("1", list.toString());
 
@@ -60,9 +62,8 @@ class CSLinkedListTest {
     }
 
     @Test
-    public void testDeleteByValue() 
-    {
-        CSLinkedList list = new CSLinkedList();
+    public void testDeleteByValue() {
+        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
 
         // Case 1: Deleting from an empty list
         assertFalse(list.deleteByValue(10), "Deleting from an empty list should return false");
