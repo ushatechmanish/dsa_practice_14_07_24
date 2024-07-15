@@ -123,4 +123,7 @@ public class CSLinkedList {
         // return true;
     }
 
+    public int countNodes() {
+        return size;
+    }
 }
