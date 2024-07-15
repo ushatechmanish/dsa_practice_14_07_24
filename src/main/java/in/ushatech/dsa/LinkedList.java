@@ -15,6 +15,11 @@ public class LinkedList {
     }
   
     public void insertNode(int nodeValue) {
+      if (head == null) {
+        createLL(nodeValue);
+        return;
+      }
+    
       Node newNode = new Node();
       newNode.value = nodeValue;
       newNode.next = null;

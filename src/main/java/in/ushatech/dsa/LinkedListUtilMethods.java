@@ -101,4 +101,46 @@ public class LinkedListUtilMethods {
         prev.next = newNode;
         newNode.next = next;
     }
+
+    public LinkedList sumLists(LinkedList l1 , LinkedList l2)
+    {
+        LinkedList result = new LinkedList();
+        // We will modify the l1 in place 
+        Node head1 = l1.head;
+        Node head2= l2.head;
+        int carry = 0;
+
+        while(head1!= null || head2!=null)
+        {
+            int value1=0;
+            int value2=0;
+            if(head1!=null)
+            {
+                value1=head1.value;
+                head1=head1.next;
+            }
+            
+            if(head2!=null)
+            {
+                value2=head2.value;
+                head2=head2.next;
+            }
+            
+            int sum = value1+value2+carry;
+            
+            int newDigit = sum % 10;
+            
+            carry=sum/10;
+
+            result.insertNode(newDigit);
+            
+            
+        }
+        if(carry!=0)
+        {
+            result.insertNode(carry);
+        }
+        return result;
+    }
+
 }
