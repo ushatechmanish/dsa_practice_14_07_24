@@ -33,5 +33,21 @@ public class LinkedList {
         tempNode = tempNode.next;
       }
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuffer sb = new StringBuffer();
+        Node tempNode = head;
+      for (int i =0; i<size; i++) {
+        sb.append(tempNode.value);
+        if (i != size -1) {
+          sb.append(" -> ");
+        }
+        tempNode = tempNode.next;
+        
+      }
+      return sb.toString();
+    }
   
   }
