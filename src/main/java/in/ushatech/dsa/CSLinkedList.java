@@ -69,60 +69,57 @@ public class CSLinkedList {
 
     }
 
-    public boolean deleteByValue(int value) {
-        // TODO
-        throw new UnsupportedOperationException("To be checked for the middle element test ");
-        // if (size == 0)
-        // return false;
-        // if (size == 1 && head.value == value) {
-        // head = tail = null;
-        // size--;
-        // return true;
-        // }
-
-        // if (size == 1 && head.value != value) {
-        // return false;
-        // }
-
-        // // At least 2 nodes are there with head != tail
-        // if (head.value == value) {
-        // Node nodeDeleted = head;
-        // head = head.next;
-        // tail.next = head;
-        // nodeDeleted.next = null;
-        // --size;
-        // return true;
-        // }
-
-        // if (tail.value == value) {
-        // Node nodeDeleted = tail;
-        // // Reach to the prevNode to tail
-        // Node temp = head;
-        // while (temp.next != tail) {
-        // temp = temp.next;
-        // }
-        // tail = temp;
-        // tail.next = head;
-        // nodeDeleted.next = null;
-        // --size;
-        // return true;
-
+    public boolean deleteByValue(int value) 
+    {
+        if(size == 0) return false;
+        if(size == 1 && head.value == value) {
+            head = tail = null;
+            size--;
+            return true;
+        }
+        
+        if(size == 1 && head.value != value) {
+            return false;
+        }
+        
+        // At least 2 nodes are there with head != tail
+        if(head.value == value) {
+            Node nodeDeleted = head;
+            head = head.next;
+            tail.next = head;
+            nodeDeleted.next = null;
+            --size;
+            return true;
+        }
+        
+        if(tail.value == value) {
+            Node nodeDeleted = tail;
+            // Reach to the prevNode to tail
+            Node temp = head;
+            while(temp.next != tail) {
+                temp = temp.next;
+            }
+            tail = temp;
+            tail.next = head;
+            nodeDeleted.next = null;
+            --size;
+            return true;
+        }
+        
         // For middle nodes
-        // Node prevNode = head;
-        // Node current = head.next;
-        // while (current != head && current.value != value) {
-        // prevNode = current;
-        // current = current.next;
-        // }
-        // if (current == head)
-        // return false; // Value not found in the list
-
-        // prevNode.next = current.next;
-        // current.next = null;
-        // --size;
-        // return true;
+        Node prevNode = head;
+        Node current = head.next;
+        while(current != head && current.value != value) {
+            prevNode = current;
+            current = current.next;
+        }
+        if(current == head) return false;  // Value not found in the list
+        
+        prevNode.next = current.next;
+        current.next = null;
+        --size;
+        return true;
     }
-
     public int countNodes() {
         return size;
     }

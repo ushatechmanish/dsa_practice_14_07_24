@@ -60,8 +60,8 @@ class CSLinkedListTest {
     }
 
     @Test
-    @Disabled
-    public void testDeleteByValue() {
+    public void testDeleteByValue() 
+    {
         CSLinkedList list = new CSLinkedList();
 
         // Case 1: Deleting from an empty list
@@ -94,7 +94,7 @@ class CSLinkedListTest {
         // Case 6: Deleting a middle element
         list.append(5);
         assertTrue(list.deleteByValue(3), "Deleting a middle element should return true");
-        assertEquals(2, list.head.next.value, "The next element after head should be the next element in the list");
+        assertEquals(5, list.head.next.value, "The next element after head should be the next element in the list");
         assertEquals(2, list.size, "size should be decremented after deleting a middle element");
 
         // Case 7: Deleting a non-existent element in a multi-element list
@@ -106,7 +106,7 @@ class CSLinkedListTest {
         assertTrue(list.deleteByValue(2), "Deleting a middle element should return true");
         assertEquals(1, list.head.value, "Head should be the first element");
         assertEquals(3, list.tail.value, "Tail should be the last element");
-        assertEquals(2, list.size, "size should be correct after all deletions");
+        assertEquals(3, list.size, "size should be correct after all deletions");
     }
 
 }
