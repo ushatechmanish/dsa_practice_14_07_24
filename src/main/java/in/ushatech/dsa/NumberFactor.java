@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://www.udemy.com/course/java-data-structures-and-algorithms-masterclass/learn/quiz/5196026#overview
+// TODO test pending
 public class NumberFactor 
 {
     // Top Down approach
@@ -56,4 +57,26 @@ public class NumberFactor
 	    dp.put(n,totalNoOfWays);
 	    return totalNoOfWays;
 	}
+
+    public int waysToGetNBottomUp(int n) 
+  {
+      int[] dp = new int[n+1];
+      // if max number of elements is already known , an array can be prepared which can serve for all further requests
+      // Important thing to note the bound of the value calulated . May have to change int to long if required 
+        return helperWaysToGetNBottomUp(n,dp);    // 	  TODO
+    }
+
+    private int helperWaysToGetNBottomUp(int n , int[] dp)
+    {
+        dp[1]=1;
+        dp[2]=1;
+        dp[3]=1;
+        dp[4]=4;
+        
+        for(int i=5;i<=n;++i)
+        {
+            dp[n]=dp[n-1]+dp[n-3]+dp[n-4];
+        }
+        return dp[n];
+    }
 }
