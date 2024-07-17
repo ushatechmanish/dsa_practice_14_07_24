@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import in.ushatech.dsa.linkedlist.CurcularlySingleLinkedList;
+import in.ushatech.dsa.linkedlist.CircularlySingleLinkedList;
 
 public class CircularSinglyLinkedListTest {
 
     @Test
     void testAppend() {
-        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
+        CircularlySingleLinkedList list = new CircularlySingleLinkedList();
         list.append(10);
         assertEquals("10", list.toString());
 
@@ -26,7 +26,7 @@ public class CircularSinglyLinkedListTest {
 
     @Test
     void testPrepend() {
-        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
+        CircularlySingleLinkedList list = new CircularlySingleLinkedList();
         list.prepend(10);
         assertEquals("10", list.toString());
 
@@ -39,7 +39,7 @@ public class CircularSinglyLinkedListTest {
 
     @Test
     void testAppendAndPrepend() {
-        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
+        CircularlySingleLinkedList list = new CircularlySingleLinkedList();
         list.append(10);
         list.prepend(5);
         list.append(15);
@@ -49,13 +49,13 @@ public class CircularSinglyLinkedListTest {
 
     @Test
     void testEmptyList() {
-        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
+        CircularlySingleLinkedList list = new CircularlySingleLinkedList();
         assertEquals("", list.toString());
     }
 
     @Test
     void testSingleElementList() {
-        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
+        CircularlySingleLinkedList list = new CircularlySingleLinkedList();
         list.append(1);
         assertEquals("1", list.toString());
 
@@ -65,7 +65,7 @@ public class CircularSinglyLinkedListTest {
 
     @Test
     public void testDeleteByValue() {
-        CurcularlySingleLinkedList list = new CurcularlySingleLinkedList();
+        CircularlySingleLinkedList list = new CircularlySingleLinkedList();
 
         // Case 1: Deleting from an empty list
         assertFalse(list.deleteByValue(10), "Deleting from an empty list should return false");

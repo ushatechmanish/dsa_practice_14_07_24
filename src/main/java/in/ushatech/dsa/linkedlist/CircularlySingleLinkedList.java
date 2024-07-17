@@ -3,12 +3,12 @@ package in.ushatech.dsa.linkedlist;
 import in.ushatech.dsa.Node;
 
 // sentinel node is not required here as we already have prev Node as tail
-public class CurcularlySingleLinkedList {
-    Node head;
-    Node tail;
-    int size;
+public class CircularlySingleLinkedList {
+    public Node head;
+    public Node tail;
+    public int size;
 
-    public CurcularlySingleLinkedList() {
+    public CircularlySingleLinkedList() {
         head = null;
         tail = null;
         size = 0;

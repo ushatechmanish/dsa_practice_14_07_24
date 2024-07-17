@@ -173,7 +173,7 @@ public class LinkedListUtilMethods {
 
     }
 
-    void addSameNode(LinkedList llA, LinkedList llB, int nodeValue) {
+    public void addSameNode(LinkedList llA, LinkedList llB, int nodeValue) {
         Node newNode = new Node();
         newNode.value = nodeValue;
         llA.tail.next = newNode;

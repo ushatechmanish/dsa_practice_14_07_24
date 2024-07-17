@@ -3,9 +3,9 @@ package in.ushatech.dsa.linkedlist;
 import in.ushatech.dsa.Node;
 
 public class SinglyLinkedList {
-    int size;
-    Node head;
-    Node tail;
+    public int size;
+    public Node head;
+    public Node tail;
 
     public Node push(int value) {
         Node newNode = new Node();
