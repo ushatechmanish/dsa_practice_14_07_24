@@ -22,21 +22,21 @@ public class AnimalQueue
     {
         return queue.poll();
     }
-    
+    // using temporary queue 
     public Cat deQueueCats()
     {
-        Stack<Animal> stack = new Stack<>();
+        Queue<Animal> tempQueue = new LinkedList<>();
         while(queue.peek() instanceof Dog)
         {
-            stack.push(queue.poll());
+            tempQueue.offer(queue.poll());
         }
         Cat firstCat = (Cat) queue.poll();
-        while (!stack.isEmpty()) {
-            queue.offer((Dog)stack.pop());
+        while (!tempQueue.isEmpty()) {
+            queue.offer(tempQueue.poll());
         }
         return firstCat;
     }
-    
+    // using temporary stack
     public Dog deQueueDogs()
     {
         Stack<Animal> stack = new Stack<>();
