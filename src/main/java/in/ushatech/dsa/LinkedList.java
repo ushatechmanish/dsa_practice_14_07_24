@@ -54,5 +54,20 @@ public class LinkedList {
       }
       return sb.toString();
     }
+
+    public int deQueue() 
+    {
+      if(size==0)
+      {
+        return Integer.MIN_VALUE;
+      }
+
+        Node newHead=head.next;
+        int result = head.value;
+        head.next=null;
+        head=newHead;
+        --size;
+        return result;
+    }
   
   }
