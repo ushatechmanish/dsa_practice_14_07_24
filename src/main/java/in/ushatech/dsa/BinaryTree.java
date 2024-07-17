@@ -2,29 +2,29 @@ package in.ushatech.dsa;
 
 public class BinaryTree {
 
-    private Node root;
+    private TreeNode root;
 
     public void add(int value) {
         if (root == null) {
-            root = new Node(value);
+            root = new TreeNode(value);
         } else {
             addRecursive(root, value);
         }
     }
 
-    private void addRecursive(Node current, int value) {
+    private void addRecursive(TreeNode current, int value) {
         int currentValue = current.value;
         if (value > currentValue)// will go in right side
         {
             if (current.right == null) {
-                current.right = new Node(value);
+                current.right = new TreeNode(value);
             }
             addRecursive(current.right, value);
         }
         if (value < currentValue)// will go in left side
         {
             if (current.left == null) {
-                current.left = new Node(value);
+                current.left = new TreeNode(value);
             }
             addRecursive(current.left, value);
         }
@@ -34,7 +34,7 @@ public class BinaryTree {
         traverseInOrderRecursive(root);
     }
 
-    private void traverseInOrderRecursive(Node node) {
+    private void traverseInOrderRecursive(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -44,16 +44,5 @@ public class BinaryTree {
 
     }
 
-    private class Node {
-        private int value;
-        private Node left;
-        private Node right;
-
-        public Node(int value) {
-            this.value = value;
-            left = null;
-            right = null;
-        }
-    }
 
 }
