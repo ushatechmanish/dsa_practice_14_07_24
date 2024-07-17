@@ -1,7 +1,9 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.linkedlist;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import in.ushatech.dsa.Node;
 
 public class LinkedListUtilMethods {
     public LinkedList deleteDups(LinkedList list) {

@@ -1,4 +1,6 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.linkedlist;
+
+import in.ushatech.dsa.Node;
 
 public class SinglyLinkedList {
     int size;

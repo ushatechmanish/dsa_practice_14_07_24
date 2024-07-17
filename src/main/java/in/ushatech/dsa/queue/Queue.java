@@ -1,4 +1,4 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.queue;
 import java.util.*;
 
 public class Queue 

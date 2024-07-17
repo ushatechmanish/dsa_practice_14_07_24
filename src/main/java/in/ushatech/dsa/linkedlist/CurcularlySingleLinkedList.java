@@ -1,4 +1,6 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.linkedlist;
+
+import in.ushatech.dsa.Node;
 
 // sentinel node is not required here as we already have prev Node as tail
 public class CurcularlySingleLinkedList {

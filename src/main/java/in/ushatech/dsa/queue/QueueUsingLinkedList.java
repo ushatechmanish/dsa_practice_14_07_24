@@ -1,4 +1,6 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.queue;
+
+import in.ushatech.dsa.linkedlist.LinkedList;
 
 public class QueueUsingLinkedList {
     LinkedList queue; 
