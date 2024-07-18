@@ -61,4 +61,52 @@ public class BinaryTreeTraversalTest {
         List<Integer> result = traversal.inOrderTraversal(root);
         assertEquals(List.of(), result, "Inorder traversal of an empty tree should return an empty list");
     }
+
+    @Test
+    public void testPreOrderTraversalSingleNode() {
+        TreeNode root = new TreeNode(1);
+        List<Integer> result = traversal.preOrderTraversal(root);
+        assertEquals(List.of(1), result, "Preorder traversal of a single node should return the node itself");
+    }
+
+    @Test
+    public void testPreOrderTraversalLeftSkewedTree() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+
+        List<Integer> result = traversal.preOrderTraversal(root);
+        assertEquals(List.of(3, 2, 1), result, "Preorder traversal of a left-skewed tree should return nodes in preorder");
+    }
+
+    @Test
+    public void testPreOrderTraversalRightSkewedTree() {
+        TreeNode root = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.right.right = new TreeNode(3);
+
+        List<Integer> result = traversal.preOrderTraversal(root);
+        assertEquals(List.of(1, 2, 3), result, "Preorder traversal of a right-skewed tree should return nodes in preorder");
+    }
+
+    @Test
+    public void testPreOrderTraversalCompleteTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        List<Integer> result = traversal.preOrderTraversal(root);
+        assertEquals(List.of(1, 2, 4, 5, 3, 6, 7), result, "Preorder traversal of a complete tree should return nodes in preorder");
+    }
+
+    @Test
+    public void testPreOrderTraversalEmptyTree() {
+        TreeNode root = null;
+        List<Integer> result = traversal.preOrderTraversal(root);
+        assertEquals(List.of(), result, "Preorder traversal of an empty tree should return an empty list");
+    }
 }
