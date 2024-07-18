@@ -14,7 +14,27 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    public void testInsertNode() {
+    public void testInsert() {
+        bst.insert(10);
+        assertNotNull(bst.root);
+        assertEquals(10, bst.root.value);
+
+        bst.insert(5);
+        assertNotNull(bst.root.left);
+        assertEquals(5, bst.root.left.value);
+
+        bst.insert(15);
+        assertNotNull(bst.root.right);
+        assertEquals(15, bst.root.right.value);
+
+        bst.insert(7);
+        assertNotNull(bst.root.left.right);
+        assertEquals(7, bst.root.left.right.value);
+    }
+
+
+    @Test
+    public void testInsertNodeIterative() {
         bst.insertNodeIterative(10);
         assertNotNull(bst.root);
         assertEquals(10, bst.root.value);
@@ -31,4 +51,5 @@ public class BinarySearchTreeTest {
         assertNotNull(bst.root.left.right);
         assertEquals(7, bst.root.left.right.value);
     }
+
 }
