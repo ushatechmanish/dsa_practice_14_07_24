@@ -43,5 +43,28 @@ public class GreedyAlgorithm
         }
         
     }
+    /**
+     * Total weight of items < capacity and total value is as large as possible
+     * @param items
+     * @param capacity
+     */
+    static void knapSack (ArrayList<KnapsackItem> items, int capacity) 
+    {
+        // descending order
+        Collections.sort(items, (i1,i2)-> Double.compare(i2.value()/(double)i2.weight(), i1.value()/(double)i1.weight()));
+        int amassedValue=0;
+        for(int i=0; i<items.size() && amassedValue<capacity ; ++i)
+        {
+            if(amassedValue+items.get(i).value() <= capacity )
+            {
+                System.out.println(items.get(i));
+                amassedValue+=items.get(i).value();
+                continue;
+            }
+            System.out.println(items.get(i)+ "used value :" + (capacity-amassedValue) +" % used"+ (capacity-amassedValue)/items.get(i).value());
+            break;
+        }
+    }
 }
 record Activity(String name, int startTime, int finishTime){}
+record KnapsackItem(int index, int value, int weight) {}
