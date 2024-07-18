@@ -6,7 +6,7 @@ import in.ushatech.dsa.linkedlist.LinkedList;
 import in.ushatech.dsa.queue.Queue;
 
 public class BinarySearchTree {
-    BinaryNode root;
+    public BinaryNode root;
 
     public BinarySearchTree() {
         root = null;
