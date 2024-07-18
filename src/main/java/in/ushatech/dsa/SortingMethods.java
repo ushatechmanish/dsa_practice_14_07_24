@@ -69,20 +69,49 @@ public class SortingMethods {
         }
 
     }
+
+    public void insertionSort(int [] arr)
+    {
+        if(arr==null || arr.length<=1) return ;
+        for(int i=1; i<arr.length ; ++i) 
+        {
+            // find the correct position of current index element in the sorted part i.e 0-(i-1)
+            int value = arr[i];
+            // int position = Arrays.binarySearch(arr, 0, i-1, value); Here toIndex is exclusive so it will be checked till toIndex-1
+            int position = Arrays.binarySearch(arr, 0, i-1, value);
+            if(position<0)
+            {
+                position= -1*position-1;
+            }
+            moveElementRightBy1(arr, position, i);
+            arr[position]=value;
+        }
+    }
+    public void moveElementRightBy1(int[] arr, int startIndex, int endIndex)
+    {
+        for(int i=endIndex; i>startIndex ; --i) 
+        {
+            arr[i]= arr[i-1];
+        }
+    }
     public static void main(String[] args) 
     {
-        int[] input = new int[] { 2, 1, 3 };
-        System.out.println("input: " + Arrays.toString(input));
-        // bubbleSort(input);
-        selectionSort(input);
-        System.out.println("result: " + Arrays.toString(input));
+        // int[] input = new int[] { 2, 1, 3 };
+        // System.out.println("input: " + Arrays.toString(input));
+        // // bubbleSort(input);
+        // selectionSort(input);
+        // System.out.println("result: " + Arrays.toString(input));
 
-        int[] quickSortInput = new int[] { 2, 1, 3 };
-        System.out.println("input1: " + Arrays.toString(quickSortInput));
-        quickSort(quickSortInput);
-        System.out.println("result: " + Arrays.toString(quickSortInput));
+        // int[] quickSortInput = new int[] { 2, 1, 3 };
+        // System.out.println("input1: " + Arrays.toString(quickSortInput));
+        // quickSort(quickSortInput);
+        // System.out.println("result: " + Arrays.toString(quickSortInput));
 
 
+        int[] insertionSortInput = new int[] { 2, 1, 3 };
+        System.out.println("input1: " + Arrays.toString(insertionSortInput));
+        quickSort(insertionSortInput);
+        System.out.println("result: " + Arrays.toString(insertionSortInput));
 
     }
 }
