@@ -57,13 +57,32 @@ public class SortingMethods {
         }
 
     }
+    public static void quickSort(int[] arr)
+    {
+        if(arr==null || arr.length<=1) return ;
+        for(int i=0 ; i< arr.length-1 ; ++i) 
+        {
+            while(arr[i]!=i+1)
+            {
+                swap(arr,i,arr[i]-1);
+            }
+        }
 
-    public static void main(String[] args) {
+    }
+    public static void main(String[] args) 
+    {
         int[] input = new int[] { 2, 1, 3 };
         System.out.println("input: " + Arrays.toString(input));
         // bubbleSort(input);
         selectionSort(input);
         System.out.println("result: " + Arrays.toString(input));
+
+        int[] quickSortInput = new int[] { 2, 1, 3 };
+        System.out.println("input1: " + Arrays.toString(quickSortInput));
+        quickSort(quickSortInput);
+        System.out.println("result: " + Arrays.toString(quickSortInput));
+
+
 
     }
 }
