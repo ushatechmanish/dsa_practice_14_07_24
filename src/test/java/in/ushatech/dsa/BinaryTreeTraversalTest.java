@@ -3,6 +3,9 @@ package in.ushatech.dsa;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import in.ushatech.dsa.binarysearch.BinaryTreeTraversal;
+
 import java.util.List;
 
 public class BinaryTreeTraversalTest {

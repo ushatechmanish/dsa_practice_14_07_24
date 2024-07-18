@@ -1,7 +1,9 @@
 
-package in.ushatech.dsa;
+package in.ushatech.dsa.binarysearch;
 
 import java.util.*;
+
+import in.ushatech.dsa.TreeNode;
 
 public class BinaryTreeTraversal {
 

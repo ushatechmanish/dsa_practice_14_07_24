@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import in.ushatech.dsa.binarysearch.BinarySearchTree;
+
 public class BinarySearchTreeTest {
     private BinarySearchTree bst;
 

@@ -1,4 +1,6 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.binarysearch;
+
+import in.ushatech.dsa.TreeNode;
 
 public class BinaryTree {
 

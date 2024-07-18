@@ -1,4 +1,4 @@
-package in.ushatech.dsa;
+package in.ushatech.dsa.binarysearch;
 
 public class BinaryNode {
     public BinaryNode left;
