@@ -94,6 +94,24 @@ public class SortingMethods {
             arr[i]= arr[i-1];
         }
     }
+    //TODO
+    public void bucketSort(int[] arr, int maxValueInInput)
+    {
+
+    }
+
+    //TODO
+    public void mergeSort(int[] arr)
+    {
+
+    }
+
+    //TODO
+    public void heapSort(int[] arr)
+    {
+        
+    }
+    
     public static void main(String[] args) 
     {
         // int[] input = new int[] { 2, 1, 3 };
